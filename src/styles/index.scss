@@ -1,0 +1,49 @@
+.App {
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+  .calculator {
+    height: 100%;
+    display: grid;
+    grid-template: 1.5fr repeat(5, 1fr) / repeat(4, 1fr);
+    gap: 10px;
+    border: 2px solid #333;
+    padding: 10px;
+
+    button {
+      border-radius: 5px;
+      background-color: gray;
+      color: white;
+      font-size: 1.2rem;
+      border: 1px solid #333;
+    }
+    .screen {
+      grid-column: 1 / 5;
+    }
+    .divide {
+      // row-start / col-start / row-end / col-end
+      // if the element takes only one space, row-start / col-start
+      grid-area: 2 / 4;
+    }
+    .multiply {
+      grid-area: 3 / 4;
+    }
+    .subtract {
+      grid-area: 4 / 4;
+    }
+    .add {
+      grid-area: 5 / 4;
+    }
+    .wide-button {
+      grid-column: 1 / 4;
+    }
+    .clear {
+      background-color: royalblue;
+      color: white;
+    }
+    .equal {
+      background-color: rgb(0, 220, 10);
+      color: white;
+    }
+  }
+}
