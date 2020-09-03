@@ -64,7 +64,8 @@ function App(props) {
     } else if (value === "=") {
       if (num1 && op && num2) {
         setHistory(`${history}` + `${op} ${num2}`);
-        setNum1(String(eval(`${num1}${op}${num2}`)));
+        let result = eval(`${num1}${op}${num2}`);
+        setNum1(String(result % 1 === 0 ? result : result.toFixed(2)));
         setNum2("");
         setOp("");
         setIsResult(true);
@@ -83,7 +84,8 @@ function App(props) {
       setIsResult(false);
     } else {
       setHistory((op ? "(" : "") + history + `${op} ${num2}` + (op ? ")" : ""));
-      setNum1(String(eval(`${num1}${op}${num2}`)));
+      let result = eval(`${num1}${op}${num2}`);
+      setNum1(String(result % 1 === 0 ? result : result.toFixed(2)));
       setNum2("");
       setOp(value);
       setIsResult(true);
