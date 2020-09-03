@@ -45,7 +45,7 @@ function App(props) {
 
     if (!op) {
       value = (num1 === "0" ? "" : isResult ? "" : num1) + value;
-      setNum1(value);
+      isResult ? setNum2(value) : setNum1(value);
       setIsResult(false);
     } else {
       value = (isResult ? "" : num2) + value;
@@ -76,19 +76,21 @@ function App(props) {
       setHistory(
         (history ? "(" : "") +
           history +
-          (isResult ? "" : num1) +
+          (isResult ? "" : num2 && !op ? "" : num1) +
           (history ? ")" : "") +
           " "
       );
       setIsResult(false);
     } else {
-      setHistory(history + `${op} ${num2}`);
+      setHistory((op ? "(" : "") + history + `${op} ${num2}` + (op ? ")" : ""));
       setNum1(String(eval(`${num1}${op}${num2}`)));
       setNum2("");
-      setOp("");
+      setOp(value);
       setIsResult(true);
     }
   };
+
+  console.log({ num1, num2, op, history, isResult });
 
   return (
     <div className="App">
