@@ -114,6 +114,7 @@ function App(props) {
 
   return (
     <div className="App">
+      <h1 className="title">CSS Grid Calculator</h1>
       <div className="calculator">
         <div className="screen">
           <p className="history">{history ? history : ""}</p>
@@ -122,6 +123,15 @@ function App(props) {
         {buttonMapper(numbers, onNumberButton)}
         {buttonMapper(operators, onOperatorButton)}
       </div>
+      <p className="footer">
+        Created By:{" "}
+        <a
+          href="https://sametmutevelli.com"
+          title="Samet Mutevelli's Personal Website"
+        >
+          Samet Mutevelli
+        </a>
+      </p>
     </div>
   );
 }
