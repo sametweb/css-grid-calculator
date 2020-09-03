@@ -1,6 +1,24 @@
 import React, { useState } from "react";
 import "./styles/index.scss";
 
+const math = (n1, op, n2) => {
+  n1 = Number(n1);
+  n2 = Number(n2);
+
+  switch (op) {
+    case "/":
+      return n1 / n2;
+    case "*":
+      return n1 * n2;
+    case "+":
+      return n1 + n2;
+    case "-":
+      return n1 - n2;
+    default:
+      return n1;
+  }
+};
+
 const operators = [
   { label: "C", className: "wide clear" },
   { label: "/", className: "divide" },
@@ -63,8 +81,8 @@ function App(props) {
       setIsResult(false);
     } else if (value === "=") {
       if (num1 && op && num2) {
-        setHistory(`${history}` + `${op} ${num2}`);
-        let result = eval(`${num1}${op}${num2}`);
+        setHistory(history + op + " " + num2);
+        let result = math(num1, op, num2);
         setNum1(String(result % 1 === 0 ? result : result.toFixed(2)));
         setNum2("");
         setOp("");
@@ -84,7 +102,7 @@ function App(props) {
       setIsResult(false);
     } else {
       setHistory((op ? "(" : "") + history + `${op} ${num2}` + (op ? ")" : ""));
-      let result = eval(`${num1}${op}${num2}`);
+      let result = math(num1, op, num2);
       setNum1(String(result % 1 === 0 ? result : result.toFixed(2)));
       setNum2("");
       setOp(value);
