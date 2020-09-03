@@ -9,6 +9,8 @@
     gap: 10px;
     border: 2px solid #333;
     padding: 10px;
+    background-color: #ddd;
+    box-shadow: #333 10px 10px 0px;
 
     button {
       border-radius: 5px;
@@ -18,7 +20,31 @@
       border: 1px solid #333;
     }
     .screen {
+      display: flex;
       grid-column: 1 / 5;
+      border: 2px solid #333;
+      background-color: white;
+      font-family: monospace;
+      flex-direction: column;
+      align-items: flex-end;
+      p {
+        margin: 0;
+      }
+      .history {
+        font-size: 0.8rem;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        padding: 0.5rem 0 0 0;
+        line-height: 1rem;
+        &:after {
+          content: "";
+          display: inline-block;
+          width: 0px;
+        }
+      }
+      .current {
+        font-size: 4rem;
+      }
     }
     .divide {
       // row-start / col-start / row-end / col-end
@@ -34,16 +60,23 @@
     .add {
       grid-area: 5 / 4;
     }
-    .wide-button {
+    .wide {
       grid-column: 1 / 4;
     }
     .clear {
+      grid-row: 2;
       background-color: royalblue;
       color: white;
+    }
+    .zero {
+      grid-row: 6;
     }
     .equal {
       background-color: rgb(0, 220, 10);
       color: white;
+    }
+    .selected {
+      background-color: orange;
     }
   }
 }
